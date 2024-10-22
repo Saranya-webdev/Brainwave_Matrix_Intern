@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <!-- style sheet -->
+    <link rel="stylesheet" href="todolist.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My To-Do List</h1>
+        </header>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="category" data-category="work " id="category1">
+                <img src="/icons/66958c0267ab9ef6124bc57262a838b8.png" alt="Work">
+                <span>Work</span>
+            </div>
+            <div class="category" data-category="education" id="category2">
+                <img src="/icons/e93fe721b610f4187748b0c7b11b7045.png" alt="Education">
+                <span>Education</span>
+            </div>
+            <div class="category" data-category="meetings" id="category3">
+                <img src="/icons/32fdd0a1bdd809c60f32c3d42c45e861.png" alt="Meetings">
+                <span>Meetings</span>
+            </div>
+            <div class="category" data-category="personal" id="category4">
+                <img src="/icons/ak5rm8mse.png" alt="Personal">
+                <span>Personal</span>
+            </div>
+            <div class="category" data-category="shopping" id="category5">
+                <img src="/icons/transparent-shopping-fashion-street-style-retail-therapy-women-young-woman-in-pink-coat-with-shopping-bags65410b14b181f8.6352892016987614927271.png" alt="Shopping">
+                <span>Shopping</span>
+            </div>
+            <div class="category" data-category="others" id="category6">
+                <img src="/icons/transparent-piggy-bank-woman-saving-money-in-piggy-bank65ee70398884e6.2605078317101251135592.png" alt="Others">
+                <span>Others</span>
+            </div>
+        </section>
+
+        <!-- Today's Task Section -->
+        <section class="today-tasks">
+            <h2>Today's Tasks</h2>
+            <ul id="task-list">
+                <li class="no-task">Enjoy your day! There are no tasks to be done today.</li>
+            </ul>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-icon active" id="home-icon"><img src="/icons/kisspng-clip-art-portable-network-graphics-computer-icons-one-line-home-icon-png-photos-png-5b6765d25eb073.1867216115335029303879.png" alt="Home"></div>
+            <div class="nav-icon" id="add-task-icon"><img src="/icons/2d63cdb48f2f14bf8accf84966d57068.png" alt="Add Task"></div>
+            <div class="nav-icon" id="reminders-icon"><img src="/icons/av5ggvvqc.png" alt="Reminders"></div>
+            <div class="nav-icon" id="profile-icon"><img src="/icons/0aa9730d6e890c6ab754b88bd03e90f4.png" alt="Profile"></div>
+        </nav>
+
+        <!-- Task Form Popup -->
+        <div id="task-form-popup" class="popup hidden">
+            <form id="task-form">
+                <label for="task-name">Enter Task</label>
+                <input type="text" id="task-name" placeholder="Enter your task" required>
+
+                <label for="category-select">Category</label>
+                <select id="category-select" required>
+                    <option value="work">Work</option>
+                    <option value="education">Education</option>
+                    <option value="meetings">Meetings</option>
+                    <option value="personal">Personal</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="others">Others</option>
+                </select>
+
+                <label for="task-date">Date</label>
+                <input type="date" id="task-date" required>
+
+                <div class="time-inputs">
+                    <label>Start Time</label>
+                    <input type="time" id="start-time" required>
+                    <label>End Time</label>
+                    <input type="time" id="end-time" required>
+                </div>
+
+                <label for="repeat">Repeat</label>
+                <select id="repeat">
+                    <option value="no">No</option>
+                    <option value="everyday">Everyday</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+
+                <label for="reminder">Reminder</label>
+                <input type="checkbox" id="reminder-checkbox">
+                <input type="datetime-local" id="reminder-date" style="display: none;">
+
+                <button type="submit" id="create-task-btn">Create Task</button>
+            </form>
+        </div>
+
+        <!-- Reminder Display -->
+        <div class="reminder-display" style="display: none;"></div>
+
+        <!-- Profile Display -->
+        <div class="profile-display" style="display: none;"></div>
+    </div>
+
+
+    <!-- script file -->
+    <script src="todolist.js"></script>
+</body>
+</html>
